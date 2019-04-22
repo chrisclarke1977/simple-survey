@@ -1,0 +1,29 @@
+{
+  "name": "simple-survey",
+  "version": "1.0.0",
+  "description": "A simple wizard style survey application",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chrisclarke1977/simple-survey.git"
+  },
+  "keywords": [
+    "react",
+    "node",
+    "simple"
+  ],
+  "author": "c clarke",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chrisclarke1977/simple-survey/issues"
+  },
+  "homepage": "https://github.com/chrisclarke1977/simple-survey#readme"
+}
