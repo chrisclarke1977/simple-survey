@@ -1,11 +1,21 @@
-import React, {Component} from 'react'
+import React, { useState} from 'react'
+
+import DateTime from 'react-datetime'
+
+import DOB from './DOB'
+import Title from './Title'
+import Location from './Location'
 import FieldInput from './FieldInput'
 
-class Home extends Component {
-    render () {
-        return (
-            <form action="/submit" method="POST">
-                <FieldInput 
+const Home = () => {
+    // Set the page of the survey that is being viewed
+    const [showPage, setPage] = useState(0);
+
+    return (
+        <form action="/submit" method="POST">
+        {showPage === 0 ?
+            <div>
+                <Title
                     title="title"
                     label="Title?"
                     value=""
@@ -15,17 +25,13 @@ class Home extends Component {
                     label="Name?"
                     value="Jane Smith"
                 />
-                <FieldInput
-                    title="dateofbirth"
-                    label="Date of Birth?"
-                    value="22/04/2019"
-                />
-                <FieldInput                    
-                    title="currentlocation"
-                    label="Current Location?"
-                    value="Earth"
-                />
-                <FieldInput
+                <DOB onChange={() => setPage(1)} />
+            </div>
+            :
+            <div>
+                <button onClick={() => setPage(0)}>Back</button>
+                <Location />
+                <DateTime
                     title="currentdatetime"
                     label="Current Date/Time?"
                     value="22/04/2019"
@@ -38,9 +44,13 @@ class Home extends Component {
                 <div>
                     <button>Submit</button>
                 </div>
-            </form>
-        )
-    }
+            </div>
+            }
+            
+
+        </form>
+    )
+    
 }
 
 export default Home
